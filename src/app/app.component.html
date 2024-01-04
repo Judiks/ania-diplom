@@ -1,0 +1,84 @@
+<mat-toolbar color="primary" class="h-auto justify-content-center">
+  <img src="https://www.khai-gis.info/static/blog/img/theme-3/logo-act.png" class="logo">
+  <span class="h4 p-2 mb-0">Онлайн мандрівка територією</span>
+</mat-toolbar>
+<section class="w-100 m-20 d-flex flex-column">
+  <div class="d-flex hvh-25 m-3 w-100">
+    <mat-card class="p-3 w-100 d-flex">
+      <div class="w-100 d-flex h-100">
+        <div class="col-8">
+          <mat-card-header>
+            <mat-card-title>
+              <h5>General Info</h5>
+            </mat-card-title>
+          </mat-card-header>
+         <div class="ms-3 me-3 general-info">
+           dolfjkasf ilsufhioasfh
+          uk;asdfho;asdfihaso;lf haso;dfsh nao;fhnasdkf jhbnasdofg asdhbngik;jadfhnbg oasdh dolfjkasf ilsufhioasfh
+          uk;asdfho;asdfihaso;lf haso;dfsh nao;fhnasdkf jhbnasdofg asdhbngik;jadfhnbg oasdhdolfjkasf ilsufhioasfh
+          uk;asdfho
+          <div class="text-center mt-3">
+           <button (click)="onDownloadArchiveClick()" mat-stroked-button>Завантажити KMZ</button>
+          </div>
+         </div>
+        </div>
+        <div class="col-4 overflow-x-hidden">
+          <iframe id="map" class="map"
+            src="https://www.google.com/maps/d/u/0/embed?mid=1i7mMVPbLOlpyiF8SCdiJ6kZT5d2gw6ua&ehbc=2E312F"></iframe>
+
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="d-flex hvh-65 m-3 mt-0  w-100">
+    <mat-card class="col-12 p-3 " [ngClass]="{'full-screen': isFullscreen}">
+      <mat-card-header class="justify-content-between">
+        <mat-card-title>
+          <h5> Галерея 3D-моделей</h5>
+        </mat-card-title>
+        <button [disableRipple]="true" class="full-screen-icon" mat-icon-button (click)="toggleFullscreen()">
+          <mat-icon >{{ isFullscreen ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
+        </button>
+      </mat-card-header>
+
+      <div class="progress" *ngIf="totalLoaded != files.length">
+        <div class="progress-bar" role="progressbar" [style.width.%]="getLoadedPercent()"
+          [attr.aria-valuenow]="totalLoaded" [attr.aria-valuemin]="0" [attr.aria-valuemax]="files.length"> rendering
+          3d models</div>
+      </div>
+      <div id="3d-models-carousel" class="carousel carousel-dark slide w-100 h-100"
+        [ngClass]="{'invisible': totalLoaded != files.length}" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <ng-container *ngFor="let file of files; let i = index">
+            <button type="button" data-bs-target="#carouselExampleCaptions" [attr.data-slide-to]="i"
+              [ngClass]="{'active': i == currentIndex }" aria-current="true" aria-label="Slide 1"></button>
+
+          </ng-container>
+        </div>
+        <div class="carousel-inner w-100 h-100">
+          <ng-container *ngFor="let file of files; let i = index" class="w-100 h-100">
+            <div class="carousel-item w-100 h-100" [class.active]="i == currentIndex || totalLoaded != files.length">
+              <app-three-model-view #3dView [pathToModel]="'assets/3d-models/' + file.name"
+                (loaded)="onModelLoaded(i)" class="w-100 h-100"></app-three-model-view>
+              <div class="carousel-caption d-none d-md-block">
+                <h2>{{file.title}}</h2>
+                <h4>{{file.subTitle}}</h4>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          (click)="prevSlide()" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          (click)="nextSlide()" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+
+</section>

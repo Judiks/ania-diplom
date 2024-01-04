@@ -1,0 +1,104 @@
+mat-list-item:hover {
+    background: rgb(209, 209, 209);
+}
+
+.hvh-65 {
+    height: 65vh;
+}
+
+.full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 96vw;
+    margin: 2vw !important;
+    height: 90vh;
+    z-index: 1000;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: 0px 0px 0px 180px rgba(87, 87, 87, 0.631);
+    .model-container {
+        height: 100% !important;
+        width: 100% !important;
+    }
+}
+
+::ng-deep .full-screen {
+    app-three-model-view {
+        height: 100% !important;
+        width: 100% !important;
+        .model-container {
+            height: 100% !important;
+            width: 100% !important;
+        }
+    }
+}
+
+.model-container {
+    min-height: 100% !important;
+    min-width: 100& !important;
+}
+
+.m-20 {
+    padding: 0 20vw;
+}
+
+.hvh-25 {
+    height: 25vh !important;
+}
+.logo {
+    width: 90px;
+    height: 40px;
+}
+::ng-deep .mat-mdc-icon-button:hover .mat-mdc-button-persistent-ripple::before {
+    opacity: 0 !important;
+  }
+
+@media screen and (max-height: 1000px) {
+    .general-info {
+        font-size: 12px;
+    }
+    h4 {
+        font-size: 12px;
+    }
+    h5 {
+        font-size: 14px !important;
+    }
+
+    .h4 {
+        font-size: 16px;
+    }
+    .logo {
+        width: 60px;
+        height: 20px;
+    }
+
+    .full-screen-icon {
+        padding: 0px;
+        height: 24px;
+    }
+    .mat-mdc-card-header {
+        padding: 8px 8px 0px;
+    }
+    .full-screen-icon {
+        margin-top: -8px;
+    }
+    .m-3 {
+        margin: 8px !important;
+    }
+    .p-3 {
+        padding: 8px !important;
+    }
+    .ms-3 {
+        margin-left: 8px !important;
+    }
+    .ms-3 {
+        margin-right: 8px !important;
+    }
+}
+
+.map {
+    width: 100% !important;
+    height: calc(100% + 60px);
+    margin-top: -70px;
+}
