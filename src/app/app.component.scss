@@ -54,6 +54,18 @@ mat-list-item:hover {
     opacity: 0 !important;
   }
 
+  .text-white-shadow {
+    color: rgb(46, 60, 102);
+    text-shadow: -1px -1px 0 white,  
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
+  }
+
+  .mat-toolbar.mat-primary {
+    background-color: rgb(80, 102, 143) !important;
+  }
+
 @media screen and (max-height: 1000px) {
     .general-info {
         font-size: 12px;

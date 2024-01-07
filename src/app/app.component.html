@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="h-auto justify-content-center">
   <img src="https://www.khai-gis.info/static/blog/img/theme-3/logo-act.png" class="logo">
-  <span class="h4 p-2 mb-0">Онлайн мандрівка територією</span>
+  <span class="h4 p-2 mb-0">Віртуальна мадрівка територією "ХАІ"</span>
 </mat-toolbar>
 <section class="w-100 m-20 d-flex flex-column">
   <div class="d-flex hvh-25 m-3 w-100">
@@ -9,18 +9,25 @@
         <div class="col-8">
           <mat-card-header>
             <mat-card-title>
-              <h5>General Info</h5>
+              <h5></h5>
             </mat-card-title>
           </mat-card-header>
-         <div class="ms-3 me-3 general-info">
-           dolfjkasf ilsufhioasfh
-          uk;asdfho;asdfihaso;lf haso;dfsh nao;fhnasdkf jhbnasdofg asdhbngik;jadfhnbg oasdh dolfjkasf ilsufhioasfh
-          uk;asdfho;asdfihaso;lf haso;dfsh nao;fhnasdkf jhbnasdofg asdhbngik;jadfhnbg oasdhdolfjkasf ilsufhioasfh
-          uk;asdfho
-          <div class="text-center mt-3">
-           <button (click)="onDownloadArchiveClick()" mat-stroked-button>Завантажити KMZ</button>
+          <div class="ms-3 me-3 general-info">
+
+            <p style="color: rgb(46, 60, 102);"><img style="width: 55px; "
+                src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logo_Luftfahrtinstitut_Charkiw.svg/1200px-Logo_Luftfahrtinstitut_Charkiw.svg.png'>
+              Національний аерокосмічний університет імені М. Є. Жуковського "Харківський авіаційний інститут" -
+              провідний український вищий навчальний заклад, який пропонує якісну освіту в галузі авіації та
+              аерокосмічної
+              техніки. Cтудентське містечко нараховує 8 навчальних корпусів, 2 науково-дослідні інститути, спортивний
+              комплекс, 9 студентських
+              гуртожитків, 6 житлових будинків та інші адміністративні спориди, що розміщені на території площею близько
+              50 гектарів.</p>
+
+            <div class="text-center mt-3">
+              <button (click)="onDownloadArchiveClick()" mat-stroked-button>Завантажити KMZ-ахрів</button>
+            </div>
           </div>
-         </div>
         </div>
         <div class="col-4 overflow-x-hidden">
           <iframe id="map" class="map"
@@ -34,10 +41,10 @@
     <mat-card class="col-12 p-3 " [ngClass]="{'full-screen': isFullscreen}">
       <mat-card-header class="justify-content-between">
         <mat-card-title>
-          <h5> Галерея 3D-моделей</h5>
+          <h5 style="color: rgb(46, 60, 102);"> Галерея 3D-моделей</h5>
         </mat-card-title>
         <button [disableRipple]="true" class="full-screen-icon" mat-icon-button (click)="toggleFullscreen()">
-          <mat-icon >{{ isFullscreen ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
+          <mat-icon>{{ isFullscreen ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
         </button>
       </mat-card-header>
 
@@ -58,11 +65,11 @@
         <div class="carousel-inner w-100 h-100">
           <ng-container *ngFor="let file of files; let i = index" class="w-100 h-100">
             <div class="carousel-item w-100 h-100" [class.active]="i == currentIndex || totalLoaded != files.length">
-              <app-three-model-view #3dView [pathToModel]="'assets/3d-models/' + file.name"
-                (loaded)="onModelLoaded(i)" class="w-100 h-100"></app-three-model-view>
+              <app-three-model-view #3dView [pathToModel]="'assets/3d-models/' + file.name" (loaded)="onModelLoaded(i)"
+                class="w-100 h-100"></app-three-model-view>
               <div class="carousel-caption d-none d-md-block">
                 <h2>{{file.title}}</h2>
-                <h4>{{file.subTitle}}</h4>
+                <h4 class="text-white-shadow">{{file.subTitle}}</h4>
               </div>
             </div>
           </ng-container>
